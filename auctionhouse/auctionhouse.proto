@@ -5,7 +5,7 @@ option go_package = "./;proto";
 
 service AuctionHouse {
     rpc Bid (Amount) returns (Ack) {}
-    rpc Result (Amount) returns (Outcome) {}
+    rpc Result () returns (Outcome) {}
 }
 
 message Node {
