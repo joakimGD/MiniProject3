@@ -1,9 +1,8 @@
-module MiniProject3
+module github.com/JoakimGD/MiniProject3
 
 go 1.17
 
 require (
-	github.com/JoakimGD/MiniProject3 v0.0.0-20211116095532-987b8c7dcbbb
 	google.golang.org/grpc v1.42.0
 	google.golang.org/protobuf v1.27.1
 )
