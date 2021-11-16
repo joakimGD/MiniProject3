@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package auctionhouse;
+option go_package = "./;proto";
 
 service AuctionHouse {
     rpc Bid (Amount) returns (Ack) {}
