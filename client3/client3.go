@@ -28,6 +28,7 @@ func main() {
 		}
 		log.Printf("Node: %d entered CS", r1.GetFrom())
 		time.Sleep(6 * time.Second)
+
 		r2, err := c.ReturnToken(context.Background(), &proto.Token{From: id})
 		if err != nil {
 			log.Fatalf("ReturnToken failed: %s", err)

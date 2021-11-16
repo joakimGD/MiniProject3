@@ -22,18 +22,18 @@ func main() {
 	c := proto.NewAuctionHouseClient(conn)
 
 	for {
-		r1, err := c.RequestToken(context.Background(), &proto.Node{Id: id})
+		r1, err := c.Bid(context.Background(), 5) //needs to be amount value
 		if err != nil {
-			log.Fatalf("RequestToken failed: %s", err)
+			log.Fatalf("Bid failed: %s", err)
 		}
-		log.Printf("Node: %d entered CS", r1.GetFrom())
+		log.Printf("Node: %d entered CS", r1.GetSuccess()) //r1.GetSuccess() er ren og skær test pt
 		time.Sleep(6 * time.Second)
-		r2, err := c.ReturnToken(context.Background(), &proto.Token{From: id})
+
+		r2, err := c.Result(context.Background(), &proto.Outcome{})
 		if err != nil {
-			log.Fatalf("ReturnToken failed: %s", err)
+			log.Fatalf("Request failed: %s", err)
 		}
-		log.Printf("Node: %d left CS", r2.GetFrom())
-		time.Sleep(2 * time.Second) // Added 2 sec to better see switch between nodes in CS
+		log.Printf("Node: %d left CS", r2.GetHighestBid())
 	}
 
 }
