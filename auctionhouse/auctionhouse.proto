@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package auctionhouse;
+
+service AuctionHouse {
+    rpc Bid (Amount) returns (Ack) {}
+    rpc Result (Amount) returns (Outcome) {}
+}
+
+message Node {
+    int64 id = 1;
+}
+
+message Amount {
+    int64 from = 1;
+}
+
+message Ack {
+    int64 from = 1;
+}
+
+message Outcome {
+    string fail = 1;
+    string success = 2;
+    string exception = 3;
+}
